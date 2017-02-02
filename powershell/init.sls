@@ -3,6 +3,7 @@
 include: 
   - netframework
 
+{% if 'installer' in powershell %}
 powershell-test:
   file.managed:
     - name: c:\alkivi\packages\powershell\test.ps1
@@ -25,3 +26,4 @@ wmf5-install:
     - unless: powershell -NoProfile -ExecutionPolicy Bypass -Command c:\alkivi\packages\powershell\test.ps1
     - require:
       - file: c:\alkivi\packages\powershell\{{ powershell.installer }}
+{% endif %}
