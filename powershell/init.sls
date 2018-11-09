@@ -15,6 +15,7 @@ wmf5-packages:
     - name: c:\alkivi\packages\powershell\{{ powershell.installer }}
     - source: {{ powershell.url  }}
     - source_hash: sha256={{ powershell.hash }}
+    - show_changes: False
     - makedirs: True
     - unless: powershell -NoProfile -ExecutionPolicy Bypass -Command c:\alkivi\packages\powershell\test.ps1
 
